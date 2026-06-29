@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup page</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            color: #172033;
+            background: linear-gradient(135deg, #e8f8f5, #f4fce8);
+        }
+
+        .container {
+            width: min(100%, 420px);
+            padding: 20px 36px;
+            border: 1px solid rgba(148, 163, 184, 0.28);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 24px 70px rgba(15, 23, 42, 0.14);
+        }
+
+        h2 {
+            margin-bottom: 8px;
+            font-size: clamp(28px, 6vw, 38px);
+            line-height: 1.05;
+            color: #0f172a;
+            text-align: center;
+            letter-spacing: 0;
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        input {
+            font-size: 16px;
+            font-weight: 400;
+            width: 100%;
+            height: 50px;
+            padding: 0 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 3px;
+            margin-bottom: 10px;
+        }
+
+        .subcontainer input {
+            width: 100%;
+            height: 48px;
+            padding: 0 14px;
+            margin-bottom: 5px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            outline: none;
+            color: #0f172a;
+            background: #ffffff;
+            font-size: 15px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .subcontainer1 input {
+            width: 100%;
+            height: 48px;
+            padding: 0 14px;
+            margin-bottom: 5px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            outline: none;
+            color: #0f172a;
+            background: #ffffff;
+            font-size: 15px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .subcontainer2 input {
+            width: 100%;
+            height: 48px;
+            padding: 0 14px;
+            margin-bottom: 5px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            outline: none;
+            color: #0f172a;
+            background: #ffffff;
+            font-size: 15px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .subcontainer3 input {
+            width: 100%;
+            height: 48px;
+            padding: 0 14px;
+            margin-bottom: 5px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            outline: none;
+            color: #0f172a;
+            background: #ffffff;
+            font-size: 15px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .subcontainer4 button {
+            width: 100%;
+            height: 50px;
+            border: 0;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            color: #ffffff;
+            background: #2563eb;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 14px 28px rgba(37, 99, 235, 0.24);
+        }
+
+        .subcontainer4 button:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        .subcontainer4 button:active {
+            transform: translateY(0);
+        }
+
+        .subcontainer5 button {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3em;
+            border: 2px solid black;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            color: black;
+            background: white;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .subcontainer5 button:hover {
+            background: #1d4ed8;
+            border: 0;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .subcontainer5 button:active {
+            transform: translateY(0);
+        }
+
+        .subcontainer5 button img {
+            width: 30px;
+            height: 20px;
+        }
+
+        @media (max-width: 325px) {
+            body {
+                padding: 18px;
+            }
+
+            .container {
+                padding: 28px 22px;
+            }
+
+            .subcontainer5 button {
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .subcontainer5 button img {
+                width: 30px;
+                height: 20px;
+            }
+
+            .subcontainer5 button {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Sign up</h2>
+        <div class="subcontainer">
+            <p>Full name</p>
+            <input type="text" id="fullName" placeholder="Enter your full name">
+        </div>
+        <div class="subcontainer1">
+            <p>Email</p>
+            <input type="text" id="email" placeholder="johndoe@gmail.com">
+        </div>
+        <div class="subcontainer2">
+            <p>Password</p>
+            <input type="password" id="password" placeholder="Enter your password">
+        </div>
+        <div class="subcontainer3">
+            <p>Confirm Password</p>
+            <input type="password" id="confirmPassword" placeholder="Confirm your password">
+        </div>
+        <div class="subcontainer4">
+            <button type="submit" id="signupBtn">Sign up</button>
+        </div>
+        <p style="text-align: center; margin-bottom: 18px;">Already have an account? <a href="./signinpage.html"
+                style="text-decoration: none; color: #1d4ed8;">Login</a></p>
+        <div class="horizontal" style="display:flex; align-items:center;">
+            <hr style="flex:1;">
+            <span style="padding:0 5px;">or</span>
+            <hr style="flex:1;">
+        </div>
+        <div class="subcontainer5" style="margin-top: 18px;">
+            <button> <img src="./download.png" alt=""><span>Sign up with Google</span></button>
+        </div>
+    </div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+        import { getFirestore, doc, collection, setDoc } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyBE-zuGT3DP2xLIv3JriTN_Dm7eBGTLYwQ",
+            authDomain: "zionwales.firebaseapp.com",
+            projectId: "zionwales",
+            storageBucket: "zionwales.firebasestorage.app",
+            messagingSenderId: "624346566090",
+            appId: "1:624346566090:web:d333646861577e32051333",
+            measurementId: "G-905PJ79WQ6"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const colref = collection(db, "users");
+        const auth = getAuth();
+
+
+        function generateAccountNumber() {
+            return Math.floor(1000000000 + Math.random() * 9000000000).toString();
+        }
+
+
+        const signupBtn = document.getElementById("signupBtn");
+
+        signupBtn.addEventListener("click", async (e) => {
+
+            let userName = document.getElementById("fullName").value.trim();
+            let userEmail = document.getElementById("email").value.trim();
+            let userPassword = document.getElementById("password").value.trim();
+            let confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+            if (userPassword !== confirmPassword) {
+                alert("Passwords do not match");
+                return;
+            }
+
+            try {
+
+                const userCredentials = await createUserWithEmailAndPassword(auth, userEmail,
+                    userPassword
+                );
+                // const accountNumber = generateAccountNumber();
+                // const querysnapshot =
+
+                await setDoc(doc(db, "users", userCredentials.user.uid), {
+                    uid: userCredentials.user.uid,
+                    username: userName,
+                    email: userEmail,
+                    accountNumber: generateAccountNumber(),
+                    balance: 0,
+                    createdAt: new Date()
+                });
+
+                alert("Account created successfully");
+
+                window.location.href = "userdashboard.html";
+
+            } catch (error) {
+
+                alert(error.message);
+
+            }
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>airtime</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        p {
+            font-size: 15px;
+        }
+
+        .section1 {
+            /* border: thin solid black; */
+            box-shadow: 0 24px 70px rgba(15, 23, 42, 0.14);
+            width: 100%;
+            height: 70vh;
+            padding: 10px 10px;
+            margin-bottom: 30px;
+        }
+
+        .backbtn {
+            background: #fff;
+            color: black;
+            border: 2px solid;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .backbtn:hover {
+            transform: translateX(-3px);
+        }
+
+        .backbtn:active {
+            transform: scale(0.97);
+        }
+
+        #section2 {
+            /* border: thin solid black; */
+            width: 100%;
+            height: 70vh;
+        }
+
+        .container {
+            /* border: thin solid black; */
+            width: 90%;
+            display: flex;
+            flex-direction: row;
+            gap: 9em;
+            margin: 20px auto;
+            height: 50vh;
+        }
+
+        .container1 {
+            /* border: thin solid black; */
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px gray;
+            width: 44%;
+            /* display: flex; */
+            margin: 30px 0;
+            padding: 20px;
+            height: 80%;
+        }
+
+        .container2 {
+            /* border: thin solid black; */
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px gray;
+            width: 44%;
+            /* display: flex; */
+            margin: 30px 0;
+            padding: 20px;
+            height: 80%;
+        }
+
+        .subcontainer1 {
+            /* border: thin solid black; */
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        select {
+            outline: none;
+            width: 100%;
+            padding: 5px;
+            /* border: 1px solid black; */
+            border-radius: 5px;
+        }
+
+        .subcontainer2 {
+            /* border: thin solid black; */
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .subcontainer3 {
+            /* border: thin solid black; */
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        #display {
+            width: 100%;
+            padding-top: 3px;
+            padding-inline-start: 5px;
+            border: 1px solid black;
+            border-radius: 5px;
+            height: 30px;
+        }
+
+        input {
+            outline: none;
+            width: 100%;
+            padding: 5px;
+            /* border: 1px solid black; */
+            border-radius: 5px;
+        }
+
+        .subcontainer4 {
+            /* border: thin solid black; */
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            height: 40px;
+        }
+
+        .btn1 {
+            color: white;
+            background-color: #2467e3;
+            border: none;
+            border-radius: 5px;
+            width: 48%;
+            font-size: 15px;
+        }
+
+
+        .btn2 {
+            color: white;
+            background-color: #3bae4a;
+            border: none;
+            border-radius: 5px;
+            width: 48%;
+            font-size: 15px;
+        }
+
+        .subcontainer5 {
+            /* border: thin solid black; */
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .subcontainer6 {
+            /* border: thin solid black; */
+            width: 100%;
+            margin-bottom: 10px;
+            height: 40px;
+        }
+
+        .btn3 {
+            color: white;
+            background-color: #2467e3;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            padding: 8px;
+            font-size: 15px;
+        }
+
+        .subcontainer7 {
+            /* border: thin solid black; */
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        #section2 {
+            width: 100%;
+            padding: 20px;
+        }
+
+        .history-header {
+            width: 95%;
+            margin: auto;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .history-header h2 {
+            font-size: 24px;
+        }
+
+        .transaction-container {
+            width: 95%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .transaction-card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .transaction-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .network-name {
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .amount {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2467e3;
+        }
+
+        .transaction-middle {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .pin-text,
+        .code-text,
+        .date-text {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .status {
+            padding: 5px 10px;
+            border-radius: 20px;
+            color: white;
+            font-size: 13px;
+            width: fit-content;
+        }
+
+        .used {
+            background: #3bae4a;
+        }
+
+        .unused {
+            background: #f39c12;
+        }
+
+        .transaction-footer {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .delete-btn {
+            border: none;
+            background: #ee202b;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .delete-btn:hover {
+            opacity: 0.9;
+        }
+
+        @media(max-width:700px) {
+
+            #section2 {
+                padding: 10px;
+            }
+
+            .transaction-card {
+                padding: 12px;
+            }
+
+            .network-name {
+                font-size: 16px;
+            }
+
+            .amount {
+                font-size: 18px;
+            }
+
+            .pin-text,
+            .code-text,
+            .date-text {
+                font-size: 12px;
+            }
+
+            .delete-btn {
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .transaction-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+
+        body.mtn {
+            background-color: #ffd700;
+            transition: 0.3s ease;
+        }
+
+        body.airtel {
+            background-color: #ff4d4d;
+            transition: 0.3s ease;
+        }
+
+        body.glo {
+            background-color: #00c853;
+            transition: 0.3s ease;
+        }
+
+        /* SECTION 1 */
+        @media (max-width: 700px) {
+            p {
+                font-size: 10px;
+            }
+
+            select {
+                padding: 3px;
+            }
+
+            input {
+                padding: 3px;
+            }
+
+            .section1 {
+                height: 100vh;
+            }
+
+            .container {
+                height: 90vh;
+                flex-direction: column;
+                gap: 0em;
+            }
+
+            .container1 {
+                margin: 0 auto;
+                width: 80%;
+            }
+
+            .container2 {
+                margin: 15px auto;
+                width: 80%;
+                height: 60%;
+            }
+
+            #display {
+                height: 25px;
+            }
+
+            .subcontainer4 {
+                height: 25px;
+            }
+
+            .btn1 {
+                font-size: 10px;
+            }
+
+            .btn2 {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- section 1 -->
+    <section class="section1">
+        <a href="userdashboard.html"><button class="backbtn">← Home</button></a>
+        <div class="container">
+            <div class="container1">
+
+                <!-- subcontainer1 -->
+                <div class="subcontainer1">
+                    <p>Network</p>
+                    <select name="" id="network">
+                        <option value="">SELECT YOUR NETWORK</option>
+                        <option value="mtn">MTN</option>
+                        <option value="airtel">AIRTEL</option>
+                        <option value="glo">GLO</option>
+                    </select>
+                </div>
+
+                <!-- subcontainer2 -->
+                <div class="subcontainer2">
+                    <select name="" id="amount">
+                        <option value="">SELECT AMOUNT</option>
+                        <option value="100">100</option>
+                        <option value="200">200</option>
+                        <option value="500">500</option>
+                        <option value="1000">1000</option>
+                    </select>
+                </div>
+
+                <!-- subcontainer3 -->
+                <div class="subcontainer3">
+                    <p>Generate Pin</p>
+                    <div id="display"></div>
+                </div>
+
+                <!-- subcontainer4 -->
+                <div class="subcontainer4">
+                    <button class="btn1" onclick="generate()">Generate Pin</button>
+                    <button class="btn2" id="savePin">Save Pin</button>
+                </div>
+
+            </div>
+
+            <!-- container2 -->
+            <div class="container2">
+                <!-- subcontainer5 -->
+                <div class="subcontainer5">
+                    <p>Recharge Pin</p>
+                    <input type="text" id="rechargePin">
+                </div>
+
+                <!-- subcontainer6 -->
+                <div class="subcontainer6">
+                    <button class="btn3" onclick="rechargeCard()">Recharge Now</button>
+                </div>
+
+                <!-- subcontainer7 -->
+                <div class="subcontainer7">
+                    <input type="text" placeholder="Result/Status">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- section 2 -->
+    <section id="section2">
+        <div class="history-header">
+            <h2>Transaction History</h2>
+            <button id="deleteAllBtn" class="delete-btn">Delete All</button>
+        </div>
+
+        <div id="tableBody" class="transaction-container"></div>
+    </section>
+
+
+
+    <script type="module" src="./airtimefire.js"></script>
+    <script>
+        let generatePin = document.getElementById("display");
+        let network = document.getElementById("network");
+        let amount = document.getElementById("amount");
+        let users = JSON.parse(localStorage.getItem("userData")) || [];
+        let refCode;
+        let userDetail;
+
+        function generate() {
+            let random = Math.trunc(Math.random() * 999999999999);
+            generatePin.innerHTML = random;
+
+        }
+
+
+        const getUserData = () => {
+            let userNetwork = network.value;
+            let userAmount = amount.value;
+            let userPin = generatePin.innerHTML;
+
+            if (userNetwork == "mtn") {
+                refCode = `*555*${userPin}#`
+            } else if (userNetwork == "airtel") {
+                refCode = `*126*${userPin}#`
+            } else if (userNetwork == "glo") {
+                refCode = `*123*${userPin}#`
+            }
+
+
+            userDetail = {
+                network: userNetwork,
+                amount: userAmount,
+                pin: userPin,
+                code: refCode,
+                status: "unused",
+                dateCreated: new Date().toLocaleDateString(),
+                dateUsed: ""
+            }
+
+
+            users.push(userDetail);
+            //    console.log(users);
+            displayUser();
+            saveUserToLocalStorage();
+
+
+
+
+
+        }
+
+        network.addEventListener("change", function () {
+            document.body.classList.remove("mtn", "airtel", "glo");
+
+            if (this.value === "mtn") {
+                document.body.classList.add("mtn");
+            }
+            else if (this.value === "airtel") {
+                document.body.classList.add("airtel");
+            }
+            else if (this.value === "glo") {
+                document.body.classList.add("glo");
+            }
+        });
+
+        const displayUser = () => {
+
+            tableBody.innerHTML = "";
+
+            if (users.length === 0) {
+
+                tableBody.innerHTML = `
+            <div style="
+                text-align:center;
+                padding:30px;
+                color:gray;
+                background:white;
+                border-radius:10px;
+            ">
+                No transactions yet
+            </div>
+        `;
+
+                return;
+            }
+
+            users.forEach((user, index) => {
+
+                tableBody.innerHTML += `
+        
+        <div class="transaction-card">
+
+            <div class="transaction-top">
+
+                <div>
+                    <div class="network-name">
+                        ${user.network}
+                    </div>
+
+                    <div class="date-text">
+                        Created: ${user.dateCreated}
+                    </div>
+                </div>
+
+                <div class="amount">
+                    ₦${user.amount}
+                </div>
+
+            </div>
+
+            <div class="transaction-middle">
+
+                <div class="pin-text">
+                    Pin: ${user.pin}
+                </div>
+
+                <div class="code-text">
+                    Ref Code: ${user.code}
+                </div>
+
+                ${user.dateUsed
+                        ?
+                        `<div class="date-text">
+                        Used: ${user.dateUsed}
+                    </div>`
+                        :
+                        ''
+                    }
+
+            </div>
+
+            <div class="transaction-footer">
+
+                <span class="status ${user.status}">
+                    ${user.status.toUpperCase()}
+                </span>
+
+                <button
+                    class="delete-btn"
+                    onclick="removeCard(${index})"
+                >
+                    Delete
+                </button>
+
+            </div>
+
+        </div>
+
+        `;
+            });
+        }
+
+        document.getElementById("savePin").addEventListener('click', () => {
+            getUserData();
+        })
+
+        function removeCard(ind) {
+
+            users.splice(ind, 1);
+
+            saveUserToLocalStorage();
+
+            displayUser();
+        }
+        document.getElementById("deleteAllBtn").addEventListener("click", () => {
+            if (users.length === 0) {
+                alert("No transactions to delete");
+                return;
+            }
+
+            const confirmDelete = confirm("Are you sure you want to delete all transactions?");
+            if (!confirmDelete) return;
+
+            users = [];
+            saveUserToLocalStorage();
+            displayUser();
+        });
+
+        function rechargeCard() {
+
+            let getUser =
+                users.find(user =>
+                    user.code === rechargePin.value.trim()
+                );
+
+            if (!getUser) {
+                alert("Invalid recharge pin");
+                return;
+            }
+
+            if (getUser.status === "used") {
+                alert("This card has already been used");
+                return;
+            }
+
+            getUser.status = "used";
+
+            getUser.dateUsed =
+                new Date().toLocaleDateString();
+
+            saveUserToLocalStorage();
+
+            displayUser();
+
+            alert("Recharge card successful");
+        }
+
+        function saveUserToLocalStorage() {
+            localStorage.setItem("userData", JSON.stringify(users));
+        }
+
+        displayUser();
+
+    </script>
+
+</body>
+
+</html>

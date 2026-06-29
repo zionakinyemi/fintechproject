@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signin page</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            color: #172033;
+            background: linear-gradient(135deg, #e8f8f5, #f4fce8);
+             /* background: linear-gradient(135deg, #00b09b, #96c93d); */
+
+        }
+
+        .container {
+            width: min(100%, 420px);
+            padding: 20px 36px;
+            border: 1px solid rgba(148, 163, 184, 0.28);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 24px 70px rgba(15, 23, 42, 0.14);
+        }
+
+        .imagecontainer {
+            /* border: thin solid black; */
+            margin: auto;
+            width: 30%;
+        }
+
+        .imagecontainer img {
+            width: 80px;
+            height: 70px;
+        }
+
+        .welcomeback {
+            /* border: thin solid black; */
+            text-align: center;
+            margin: 5px;
+        }
+
+        .welcomeback h3 {
+            margin: 3px;
+        }
+
+        .welcomeback p {
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        input {
+            font-size: 16px;
+            font-weight: 400;
+            width: 100%;
+            height: 50px;
+            padding: 0 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 3px;
+            margin-bottom: 10px;
+        }
+
+        .signinbtn {
+            width: 100%;
+            height: 50px;
+            border: 0;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            color: #ffffff;
+            background: #2563eb;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 14px 28px rgba(37, 99, 235, 0.24);
+        }
+
+        .signinbtn:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        .signinbtn:active {
+            transform: translateY(0);
+        }
+
+        .subcontainer3 button {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3em;
+            border: 2px solid black;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            color: black;
+            background: white;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .subcontainer3 button:hover {
+            background: #1d4ed8;
+            border: 0;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .subcontainer3 button:active {
+            transform: translateY(0);
+        }
+
+        .subcontainer3 img {
+            width: 30px;
+            height: 17px;
+        }
+        a{
+            text-decoration: none;
+            color: #1d4ed8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="imagecontainer">
+            <!-- <img src="./logo.png" alt=""> -->
+        </div>
+        <div class="welcomeback">
+            <h3>Welcome back!</h3>
+            <p>Sign in to your account</p>
+        </div>
+        <div class="subcontainer1">
+            <p>Email Address</p>
+            <input type="text" placeholder="johndoe@gmail.com" class="inputfield" id="signinEmail">
+        </div>
+        <div class="subcontainer2">
+            <p>Password</p>
+            <input type="password" placeholder="Enter your password" class="inputfield" id="signinPassword">
+        </div>
+        <button class="signinbtn" id="emailSigninBtn">Sign in</button>
+        <div class="horizontal" style="display:flex; align-items:center;">
+            <hr style="flex:1;">
+            <span style="padding:0 5px;">or</span>
+            <hr style="flex:1;">
+        </div>
+        <div class="subcontainer3" style="margin-top: 18px;">
+            <button id="googleSigninBtn" ><img src="./download.png" alt=""><span>Continue with Google</span></button>
+        </div>
+        <p style="text-align: center;">Don't have an account? <a href="./signuppage.html">Create one</a></p>
+    </div>
+
+
+     <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+     const firebaseConfig = {
+            apiKey: "AIzaSyBE-zuGT3DP2xLIv3JriTN_Dm7eBGTLYwQ",
+            authDomain: "zionwales.firebaseapp.com",
+            projectId: "zionwales",
+            storageBucket: "zionwales.firebasestorage.app",
+            messagingSenderId: "624346566090",
+            appId: "1:624346566090:web:d333646861577e32051333",
+            measurementId: "G-905PJ79WQ6"
+     }
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+const emailSigninBtn = document.getElementById("emailSigninBtn");
+  emailSigninBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const email = document.getElementById("signinEmail").value.trim();
+    const password = document.getElementById("signinPassword").value.trim();
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        window.location.href = "userdashboard.html";
+      })
+      .catch((error) => {
+        console.error("Sign-in error code:", error.code);
+        console.error("Sign-in error message:", error.message);
+        alert(error.message);
+      });
+  });
+
+  
+  const googleSigninBtn = document.getElementById("googleSigninBtn");
+  googleSigninBtn.addEventListener("click", () => {
+    signInWithPopup(auth, provider)
+      .then(() => {
+        window.location.href = "userdashboard.html";
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  });
+</script>
+</body>
+
+ 
+    
+</html>

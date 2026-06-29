@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transfer</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .dashboard {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: linear-gradient(135deg, #00b09b, #96c93d);
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            margin: 10px auto 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin: 10px 0;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: flex;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+        }
+
+        .sidebar a:hover {
+            background: #EFEFEF;
+            color: #52a445;
+            width: 98%;
+            margin: auto;
+            border-radius: 20px;
+        }
+
+        .sidebar a.active {
+            width: 98%;
+            margin: auto;
+            border-radius: 20px;
+            background: #EFEFEF;
+            color: #52a445;
+            font-weight: bold;
+        }
+
+        .logoutdiv {
+            margin-top: 300px;
+            border-top: thin solid gray;
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            background-color: #EFEFEF;
+        }
+
+        .header {
+            width: 100%;
+        }
+
+        .transfer-banner {
+            border-radius: 10px;
+            background: linear-gradient(135deg, #00b09b, #96c93d);
+            margin-top: 8px;
+            padding: 20px 22px;
+            width: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .transfer-banner h2 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .transfer-banner p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 13px;
+        }
+
+        .transfer-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 24px 26px;
+            margin-top: 16px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 480px;
+        }
+
+        .transfer-card label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 6px;
+            margin-top: 16px;
+        }
+
+        .transfer-card label:first-of-type {
+            margin-top: 0;
+        }
+
+        .transfer-card input {
+            width: 100%;
+            border: 1px solid #ccc;
+            outline: none;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 15px;
+        }
+
+        .transfer-card input:focus {
+            border-color: #52a445;
+        }
+
+        .transfer-card input.invalid {
+            border-color: #c0392b;
+        }
+
+        .field-hint {
+            font-size: 12px;
+            margin-top: 5px;
+            min-height: 16px;
+        }
+
+        .field-hint.error {
+            color: #c0392b;
+        }
+
+        .field-hint.success {
+            color: #2e9e3f;
+        }
+
+        #recipientName {
+            font-size: 16px;
+            font-weight: bold;
+            color: #172033;
+            background: #EFEFEF;
+            padding: 10px 12px;
+            border-radius: 6px;
+            margin-top: 16px;
+            display: none;
+        }
+
+        .transfer-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 22px;
+            background: #52a445;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            font-size: 15px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+
+        .transfer-btn:hover {
+            background: #43893a;
+        }
+
+        .transfer-btn:disabled {
+            background: #a9a9a9;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="userdashboard.html" id="dashboard"><span
+                            class="material-symbols-outlined">home</span>Home</a></li>
+                <li><a href="transaction.html" id="transactions"><span
+                            class="material-symbols-outlined">history</span>Transaction History</a></li>
+                <li><a href="#"><span class="material-symbols-outlined">savings</span>Savings <sup style="font-size: 10px; border-radius: 10px; text-align: center;">NEW</sup> </a></li>
+                </li>
+                <li><a href="profile.html" id="profile"><span
+                            class="material-symbols-outlined">account_circle</span>Profile</a></li>
+            </ul>
+            <div class="logoutdiv">
+                <a href="#" id="logoutBtn" class="logout"><span class="material-symbols-outlined">logout</span>Logout</a>
+            </div>
+        </aside>
+        <main class="content">
+            <header class="header">
+                <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Transfer</h1>
+            </header>
+
+            <div class="transfer-banner">
+                <h2>Send money to another user</h2>
+                <p>Available Balance: <span id="senderBalance">₦0.00</span></p>
+            </div>
+
+            <div class="transfer-card">
+                <form id="transferForm">
+                    <label for="receiverAccountNumber">Recipient Account Number</label>
+                    <input type="text" id="receiverAccountNumber" placeholder="Enter 10-digit account number"
+                        inputmode="numeric" maxlength="10" required />
+                    <p class="field-hint" id="accountHint"></p>
+                    <div id="recipientName"></div>
+
+                    <label for="transferAmount">Amount (₦)</label>
+                    <input type="number" id="transferAmount" placeholder="Enter amount" min="1" required />
+
+                    <button class="transfer-btn" type="submit" id="transferSubmitBtn">Send Money</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="transferfire.js"></script>
+    <script>
+        const path = window.location.pathname;
+
+        if (path.includes("userdashboard")) {
+            document.getElementById("dashboard")?.classList.add("active");
+        }
+
+        if (path.includes("profile")) {
+            document.getElementById("profile")?.classList.add("active");
+        }
+
+        if (path.includes("transactions")) {
+            document.getElementById("transactions")?.classList.add("active");
+        }
+
+        if (path.includes("virtualcard")) {
+            document.getElementById("card")?.classList.add("active");
+        }
+    </script>
+</body>
+
+</html>

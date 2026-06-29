@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #EFEFEF;
+            min-height: 100vh;
+        }
+
+        .header-bar {
+            background: linear-gradient(135deg, #00b09b, #96c93d);
+            padding: 25px 20px;
+            color: white;
+        }
+
+        .backbtn {
+            background: white;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .history-header h2 {
+            font-size: 24px;
+        }
+
+        #deleteAllBtn {
+            border: none;
+            background: #ee202b;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        #deleteAllBtn:hover {
+            opacity: 0.9;
+        }
+
+        .transaction-container {
+            width: 95%;
+            max-width: 700px;
+            margin: 25px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .transaction-card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .transaction-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .tx-description {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .date-text {
+            color: #666;
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        .amount {
+            font-size: 18px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .transaction-footer {
+            margin-top: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status {
+            padding: 4px 12px;
+            border-radius: 20px;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status.credit {
+            background: #3bae4a;
+        }
+
+        .status.debit {
+            background: #ee202b;
+        }
+
+        .delete-btn {
+            border: none;
+            background: #f1f1f1;
+            color: #ee202b;
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .delete-btn:hover {
+            background: #ee202b;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-bar">
+        <a href="userdashboard.html"><button class="backbtn">← Home</button></a>
+        <div class="history-header">
+            <h2>Transaction History</h2>
+            <button id="deleteAllBtn">Delete All</button>
+        </div>
+    </div>
+
+    <div id="tableBody" class="transaction-container"></div>
+
+    <script type="module" src="./transactionfire.js"></script>
+</body>
+</html>
