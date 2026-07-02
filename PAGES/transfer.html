@@ -196,6 +196,91 @@
             background: #a9a9a9;
             cursor: not-allowed;
         }
+
+        @media (max-width: 760px) {
+            .dashboard {
+                display: block;
+            }
+
+            .sidebar {
+                position: fixed;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 20;
+                width: 100%;
+                padding: 6px 8px;
+                border-radius: 18px 18px 0 0;
+                flex-direction: row;
+                box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.16);
+            }
+
+            .sidebar ul {
+                display: flex;
+                flex: 1;
+                gap: 4px;
+                overflow-x: auto;
+                scrollbar-width: none;
+            }
+
+            .sidebar ul::-webkit-scrollbar {
+                display: none;
+            }
+
+            .sidebar li,
+            .logoutdiv {
+                flex: 1 0 68px;
+                margin: 0;
+            }
+
+            .logoutdiv {
+                border-top: 0;
+                padding: 0;
+                width: auto;
+            }
+
+            .sidebar a {
+                align-items: center;
+                border-radius: 14px;
+                flex-direction: column;
+                font-size: 11px;
+                gap: 2px;
+                justify-content: center;
+                min-height: 54px;
+                padding: 6px 4px;
+                text-align: center;
+                white-space: nowrap;
+            }
+
+            .sidebar a:hover,
+            .sidebar a.active {
+                width: auto;
+                margin: 0;
+                border-radius: 14px;
+            }
+
+            .sidebar .material-symbols-outlined {
+                font-size: 22px;
+            }
+
+            .content {
+                min-height: 100vh;
+                padding: 16px 12px 92px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .transfer-banner,
+            .transfer-card {
+                max-width: 100%;
+            }
+
+            .transfer-card {
+                padding: 20px 16px;
+            }
+        }
     </style>
 </head>
 
