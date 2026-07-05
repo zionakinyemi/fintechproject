@@ -1,5 +1,5 @@
 import { doc, collection, runTransaction } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
-import { db } from "./firebase.js";
+import { db } from "./transferfire.js";
 
 export async function deductBalance(uid, amount, description) {
     const userDocRef = doc(db, "users", uid);
