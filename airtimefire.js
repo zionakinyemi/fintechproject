@@ -1,4 +1,4 @@
-import { auth } from "./firebase.js";
+import { auth } from "./transferfire.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
 import { deductBalance } from "./transaction-utils.js";
 
